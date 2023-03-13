@@ -1,6 +1,6 @@
 # 1. Loading Imetronic output directly on Matlab
 
-Because of exporting the Imetronic output data is an authentic pain, I wrote this matlab script () to retrieve a dictionary of events logged by Imetronic (exercise lines executions, infra red beam-breaks). This works for the setups used in Herry Lab, but if you want to us it on other Imetronic setups: double check if it works!
+Because of exporting the Imetronic output data is an authentic pain, I wrote this matlab script (<b>loadIMetronicData.m</b>) to retrieve a dictionary of events logged by Imetronic (exercise lines executions, infra red beam-breaks). This works for the setups used in Herry Lab, but if you want to us it on other Imetronic setups: double check if it works!
 The important files to save are the "exercises" (.xls) and the "data" files (.dat). 
 
 To call the Matlab function you need to give:
