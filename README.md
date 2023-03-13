@@ -1,13 +1,27 @@
 # 1. Loading Imetronic output directly on Matlab
 
-I wrote this matlab script to retrieve a dictionary of events logged by Imetronic (exercise lines executions, infra red beam-breaks). 
-This works for the setups used in Herry Lab, but if you want to implement it on your setups: double check if it works!
+Because of exporting the Imetronic output data is an authentic pain, I wrote this matlab script () to retrieve a dictionary of events logged by Imetronic (exercise lines executions, infra red beam-breaks). This works for the setups used in Herry Lab, but if you want to us it on other Imetronic setups: double check if it works!
 The important files to save are the "exercises" (.xls) and the "data" files (.dat). 
 
-Briebly, the .dat files logs the timestamps and what happened in the setup. Whenever one exercise line is executed, the number of the line of the exercise is logged on the .dat file. Then it is impotant to add a label to the event you want to retrieve, and to do that
+To call the Matlab function you need to give:
+- the path to the Imetronic exercise used.
+- the path to the imetronic data files you want to analyze.
+- the prefix of the saved filnames (like mouse ids; multiple files with same ids are ordered on the output according to file date).
+- the dictionary of labels to retrieve (see below).
+
+An example call:
+
+\>\> outVar=loadIMetronicData('D:\Daniel\imeData\Exercises', 'D:\Daniel\imeData\electro\g15', {'397','398'}, {'_CSM','_CSP'});
+
+The output outVar is a structure containing the extracted data for each .dat file processed. The trajetory data is reconstructed from infrared beam-breaks.
+
+Note about the labels: the .dat files logs the timestamps and what happened in the setup. Whenever one exercise line is executed, the number of the line of the exercise is logged on the .dat file. Then it is impotant to add a label to the event you want to retrieve, and to do that
 you add a label, like for example here we log the onset of a new trial using "_NEW":
 
 ![image](https://user-images.githubusercontent.com/28762337/224672649-e4ecca8e-3c8a-4344-b878-c2c86f5b1e24.png)
+
+If you didn't have the labels added to the exercise at the time when you run it, you can add them before calling the function and it will work. 
+
 
 # 2. Controlling external Reward ports and internal shock intensity of Imetronic.
 
