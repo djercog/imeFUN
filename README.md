@@ -29,12 +29,12 @@ Here I document the things you need to do in order to use Imetronic to interface
 
 We customized the shuttleboxes adding water-ports (Sanworks, https://sanworks.io/shop/viewproduct?productID=1009) into the short walls. Use a 18 mm drill bit to drill through the plexiglass and fix the port inside.
 
-To control the ports we use an Arduino Mega controlling an 8-channel mechanical relay module (AZDelivery). The reward port requires 5v (leds) and 12v (valve) power supplies (AZDelivery). Connection map is as follows:
+To control the ports we use an Arduino Mega controlling an 8-channel mechanical relay module (AZDelivery). The reward port requires 5v (leds and nose-poke photogate) and 12v (valve) power supplies (AZDelivery). Connection map is as follows:
 
 ![image](https://user-images.githubusercontent.com/28762337/224666493-960b5899-537d-441e-8f04-bc3a97f3d3b6.png)
 
 The 4 relays from below control the led and valve (x2) respectively. We also control the intensity of the shock using the relays from the top.
-
+Load the arduino code (.ino) in the Mega. The arduino is listening whats happening in terms of the input TTLs to determine the ongoing trial type and launching different routines (for example, reward delivery or setting the shock intensity) and photogates crossing to detect nose-pokes. To log the nose-pokes you need to run the python "listener" of the serial port, that is also included in this repository. 
 
 
 
